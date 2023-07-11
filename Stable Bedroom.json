@@ -3064,7 +3064,7 @@
               "useMultipleDirections": false,
               "directions": [
                 {
-                  "looping": true,
+                  "looping": false,
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
@@ -3124,7 +3124,7 @@
               "useMultipleDirections": false,
               "directions": [
                 {
-                  "looping": true,
+                  "looping": false,
                   "metadata": "{\"pskl\":{}}",
                   "timeBetweenFrames": 0.08,
                   "sprites": [
@@ -3203,8 +3203,8 @@
               "useMultipleDirections": false,
               "directions": [
                 {
-                  "looping": true,
-                  "timeBetweenFrames": 0.025,
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
@@ -3356,7 +3356,7 @@
                 },
                 {
                   "type": {
-                    "value": "ChangeAnimation"
+                    "value": "ChangeAnimationSpeedScale"
                   },
                   "parameters": [
                     "AimingBubble",
@@ -3723,7 +3723,7 @@
                               },
                               "parameters": [
                                 "",
-                                "LShift"
+                                "Space"
                               ]
                             },
                             {
@@ -3750,7 +3750,7 @@
                             "AimingBubble.Y()",
                             "MovingBubble",
                             "launcher.Turret::AimingAngle()",
-                            "300",
+                            "1200",
                             ""
                           ]
                         },
@@ -3786,7 +3786,7 @@
                                 "BoardBubble",
                                 "",
                                 "",
-                                ""
+                                "yes"
                               ]
                             }
                           ],
@@ -3833,7 +3833,7 @@
                     "SideBoarder",
                     "",
                     "",
-                    ""
+                    "yes"
                   ]
                 }
               ],
@@ -3879,7 +3879,7 @@
                         "BoardBubble",
                         "",
                         "",
-                        ""
+                        "yes"
                       ]
                     },
                     {
@@ -3891,7 +3891,7 @@
                         "TopBoarder",
                         "",
                         "",
-                        ""
+                        "yes"
                       ]
                     }
                   ]
@@ -3993,10 +3993,10 @@
                       "parameters": [
                         "",
                         "MovingBubble",
-                        "320",
-                        "320",
-                        "160",
-                        "160",
+                        "32",
+                        "32",
+                        "16",
+                        "16",
                         ""
                       ]
                     }
@@ -4206,6 +4206,17 @@
                                     "value": "PickedInstancesCount"
                                   },
                                   "parameters": [
+                                    "LInkedBubble",
+                                    ">=",
+                                    "6"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SceneInstancesCount"
+                                  },
+                                  "parameters": [
+                                    "LInkedBubble",
                                     "LInkedBubble",
                                     ">=",
                                     "6"
@@ -4522,6 +4533,17 @@
                     "=",
                     "0"
                   ]
+                },
+                {
+                  "type": {
+                    "value": "SceneInstancesCount"
+                  },
+                  "parameters": [
+                    "FallingBubble",
+                    "FallingBubble",
+                    "=",
+                    "0"
+                  ]
                 }
               ],
               "actions": [],
@@ -4537,11 +4559,6 @@
             }
           ],
           "parameters": []
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
         }
       ],
       "layers": [
@@ -4750,7 +4767,7 @@
                 "value": "BuiltinCommonInstructions::CompareNumbers"
               },
               "parameters": [
-                "GlobalVariableChildCount(remainingColors)",
+                "VariableChildCount(remainingColors)",
                 "=",
                 "0"
               ]
@@ -4759,11 +4776,11 @@
           "actions": [
             {
               "type": {
-                "value": "SetGlobalVariableAsBoolean"
+                "value": "SetSceneVariableAsBoolean"
               },
               "parameters": [
                 "levelCompleted",
-                "True"
+                "False"
               ]
             }
           ]
@@ -4786,7 +4803,7 @@
               "parameters": [
                 "level",
                 "=",
-                "mod(GlobalVariable(level) + 1, 4)"
+                "mod(GlobalVariable(level) + 1, 2)"
               ]
             },
             {
@@ -9001,17 +9018,6 @@
                             "Object.Behavior::PropertyOldForceLength()",
                             "1"
                           ]
-                        },
-                        {
-                          "type": {
-                            "value": "Bounce::Bounce::SetPropertyBounceCount"
-                          },
-                          "parameters": [
-                            "Object",
-                            "Behavior",
-                            "+",
-                            "1"
-                          ]
                         }
                       ]
                     }
@@ -9454,7 +9460,7 @@
       "dependencies": [],
       "eventsFunctions": [
         {
-          "description": "Check if the cursor has stayed still for the specified time on the default layer.",
+          "description": "Check if the cursor has stayed still for the specified time ",
           "fullName": "Cursor stays still",
           "functionType": "Condition",
           "name": "CursorStayStill",
@@ -9479,14 +9485,32 @@
               "conditions": [
                 {
                   "type": {
-                    "inverted": true,
-                    "value": "CompareTimer"
+                    "value": "BuiltinCommonInstructions::Or"
                   },
-                  "parameters": [
-                    "",
-                    "\"__mousemovement_MouseStayStill\"",
-                    "<",
-                    "GetArgumentAsNumber(\"Duration\")"
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "SceneVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "__mousemovement_HasMovedOnce",
+                        "True"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "CompareTimer"
+                      },
+                      "parameters": [
+                        "",
+                        "\"__mousemovement_MouseStayStill\"",
+                        "<",
+                        "GetArgumentAsNumber(\"Duration\")"
+                      ]
+                    }
                   ]
                 }
               ],
@@ -9523,6 +9547,15 @@
                     "",
                     "\"__mousemovement_MouseStayStill\""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "SetSceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "__mousemovement_HasMovedOnce",
+                    "True"
+                  ]
                 }
               ]
             }
@@ -9545,7 +9578,17 @@
           "events": [
             {
               "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "__mousemovement_previousPositionIsKnown",
+                    "True"
+                  ]
+                }
+              ],
               "actions": [
                 {
                   "type": {
@@ -9591,17 +9634,7 @@
                   ]
                 }
               ]
-            }
-          ],
-          "parameters": [],
-          "objectGroups": []
-        },
-        {
-          "fullName": "",
-          "functionType": "Action",
-          "name": "onScenePostEvents",
-          "sentence": "",
-          "events": [
+            },
             {
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [],
@@ -9611,7 +9644,7 @@
                     "value": "ModVarScene"
                   },
                   "parameters": [
-                    "__mousemovement.MousePreX",
+                    "__mousemovement_MousePreX",
                     "=",
                     "MouseX(\"\", 0)"
                   ]
@@ -9621,9 +9654,18 @@
                     "value": "ModVarScene"
                   },
                   "parameters": [
-                    "__mousemovement.MousePreY",
+                    "__mousemovement_MousePreX",
                     "=",
                     "MouseY(\"\", 0)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetSceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "__mousemovement_previousPositionIsKnown",
+                    "True"
                   ]
                 }
               ]
@@ -13475,175 +13517,6 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 156,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "ae42409e-b01e-4fca-937b-a4e5fcbf5528",
-          "width": 156,
-          "x": 115,
-          "y": 137,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 156,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "9126add9-5199-41e8-b4c9-f4b3e9e5a14b",
-          "width": 156,
-          "x": 123,
-          "y": 144,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 156,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "b632241d-6c8a-4fb6-b89b-dbb6aede47cc",
-          "width": 156,
-          "x": 123,
-          "y": 144,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 156,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "93e61013-4e58-472f-a069-2201018efb40",
-          "width": 156,
-          "x": 861,
-          "y": 463,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 156,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "cf8ff98f-be12-4ec7-81af-a40db563b9bc",
-          "width": 156,
-          "x": 608,
-          "y": 156,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 156,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "9bf47618-2cdd-4bfa-bb48-7129e1e86b57",
-          "width": 156,
-          "x": 442,
-          "y": 159,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 156,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "acfaa981-3b90-4456-8dbc-25dfdc49e09c",
-          "width": 156,
-          "x": 280,
-          "y": 147,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 156,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "e568b1f1-fc59-4f6b-8874-9ebafaad6d30",
-          "width": 156,
-          "x": 927,
-          "y": 611,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 156,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "e37131da-3b7f-4082-bf40-51f57251d0f1",
-          "width": 156,
-          "x": 771,
-          "y": 587,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 156,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "55149f9e-0a3f-4680-a1db-1f9dc61f74d2",
-          "width": 156,
-          "x": 707,
-          "y": 445,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        }
-      ],
-      "editionSettings": {
-        "grid": false,
-        "gridType": "rectangular",
-        "gridWidth": 32,
-        "gridHeight": 32,
-        "gridOffsetX": 0,
-        "gridOffsetY": 0,
-        "gridColor": 10401023,
-        "gridAlpha": 0.8,
-        "snap": false,
-        "zoomFactor": 0.26555519508865727,
-        "windowMask": false
-      }
-    },
-    {
-      "associatedLayout": "playing scene",
-      "name": "level2",
-      "instances": [
-        {
-          "angle": 0,
-          "customSize": true,
           "height": 132,
           "layer": "",
           "name": "PurpleBubble",
@@ -13967,476 +13840,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.3240209921662246,
-        "windowMask": false
-      }
-    },
-    {
-      "associatedLayout": "playing scene",
-      "name": "level3",
-      "instances": [
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 127,
-          "layer": "",
-          "name": "BlueBubble",
-          "persistentUuid": "4267183e-1aaf-4eeb-bcfb-fed6b29fa83e",
-          "width": 127,
-          "x": 48,
-          "y": 3,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 132,
-          "layer": "",
-          "name": "GreenBubble",
-          "persistentUuid": "3b24343a-2f08-4229-a23e-0a0e3017197c",
-          "width": 153,
-          "x": 176,
-          "y": -6,
-          "zOrder": 2,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 146,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "9d4c03f3-ddcf-4a8a-b072-03e1f33eb6de",
-          "width": 146,
-          "x": 470,
-          "y": -3,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 149,
-          "layer": "",
-          "name": "YellowBubble",
-          "persistentUuid": "11cfe018-aa8b-408b-8b92-7b89302aa666",
-          "width": 149,
-          "x": 320,
-          "y": -6,
-          "zOrder": 5,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 127,
-          "layer": "",
-          "name": "BlueBubble",
-          "persistentUuid": "30158b2b-3c70-41d2-be66-8e58f1841dbc",
-          "width": 127,
-          "x": 747,
-          "y": -10,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 132,
-          "layer": "",
-          "name": "GreenBubble",
-          "persistentUuid": "d8989cd8-7f96-4a2b-8a25-a2c40f1d7158",
-          "width": 153,
-          "x": 880,
-          "y": 7,
-          "zOrder": 2,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 149,
-          "layer": "",
-          "name": "YellowBubble",
-          "persistentUuid": "87abcb07-c07b-47e7-b867-e6fbd9a17433",
-          "width": 149,
-          "x": 1039,
-          "y": 5,
-          "zOrder": 5,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 146,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "ef84ca23-26aa-4100-9560-109d20815d27",
-          "width": 146,
-          "x": 121,
-          "y": 112,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 127,
-          "layer": "",
-          "name": "BlueBubble",
-          "persistentUuid": "69eaa546-9137-48a7-ba3b-9906b4508f15",
-          "width": 127,
-          "x": 402,
-          "y": 129,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 132,
-          "layer": "",
-          "name": "GreenBubble",
-          "persistentUuid": "b1eaf0aa-3bb0-4b30-9a68-8c8e6455a43d",
-          "width": 153,
-          "x": 526,
-          "y": 143,
-          "zOrder": 2,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 149,
-          "layer": "",
-          "name": "YellowBubble",
-          "persistentUuid": "318f6851-f53b-4c29-bb7b-a5e0ff103664",
-          "width": 149,
-          "x": 488,
-          "y": 612,
-          "zOrder": 5,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 149,
-          "layer": "",
-          "name": "YellowBubble",
-          "persistentUuid": "a00eda80-f791-485d-b5b3-4a415e2e3e9b",
-          "width": 149,
-          "x": 263,
-          "y": 461,
-          "zOrder": 5,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 149,
-          "layer": "",
-          "name": "YellowBubble",
-          "persistentUuid": "de013a17-4711-440d-9d32-97977266857e",
-          "width": 149,
-          "x": 500,
-          "y": 340,
-          "zOrder": 5,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 149,
-          "layer": "",
-          "name": "YellowBubble",
-          "persistentUuid": "7c8460c1-a1fe-4b3e-9014-b994676db058",
-          "width": 149,
-          "x": 765,
-          "y": 230,
-          "zOrder": 5,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 149,
-          "layer": "",
-          "name": "YellowBubble",
-          "persistentUuid": "b356508e-8041-4208-b325-eadf4dab2f5d",
-          "width": 149,
-          "x": 810,
-          "y": 115,
-          "zOrder": 5,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 146,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "e88fcf1f-f0f2-4da6-baa1-107d155445f1",
-          "width": 146,
-          "x": 628,
-          "y": 607,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 146,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "a92ba94d-afd2-4673-9a4d-5daa7b8c96f3",
-          "width": 146,
-          "x": 417,
-          "y": 473,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 146,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "459baacc-b58f-40cc-a26b-e0b78efccda5",
-          "width": 146,
-          "x": 752,
-          "y": 370,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 146,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "c0c7e8f9-ce40-4c72-b23e-1d0d74fc315e",
-          "width": 146,
-          "x": 620,
-          "y": 237,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 146,
-          "layer": "",
-          "name": "RedBubble",
-          "persistentUuid": "31e3db36-474c-4e72-a36b-d430c24fdbdc",
-          "width": 146,
-          "x": 673,
-          "y": 115,
-          "zOrder": 3,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 132,
-          "layer": "",
-          "name": "GreenBubble",
-          "persistentUuid": "568c5154-5144-4ff5-b2fb-8e6f099a150a",
-          "width": 153,
-          "x": 681,
-          "y": 490,
-          "zOrder": 2,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 132,
-          "layer": "",
-          "name": "GreenBubble",
-          "persistentUuid": "ca6818ef-0ba0-4b2f-a557-32cbb91a484d",
-          "width": 153,
-          "x": 215,
-          "y": 358,
-          "zOrder": 2,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 132,
-          "layer": "",
-          "name": "GreenBubble",
-          "persistentUuid": "1d025079-13ca-4a1c-add8-219d8300cf9e",
-          "width": 153,
-          "x": 896,
-          "y": 246,
-          "zOrder": 2,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 132,
-          "layer": "",
-          "name": "GreenBubble",
-          "persistentUuid": "d95f24c2-a8d7-4687-a85a-ae0e87261439",
-          "width": 153,
-          "x": 318,
-          "y": 239,
-          "zOrder": 2,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 127,
-          "layer": "",
-          "name": "BlueBubble",
-          "persistentUuid": "512427a8-9e6a-4efb-9a78-a2b9d409b049",
-          "width": 127,
-          "x": 663,
-          "y": 735,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 127,
-          "layer": "",
-          "name": "BlueBubble",
-          "persistentUuid": "95ab66a1-797e-481b-ae45-7d7e0fcfa1d0",
-          "width": 127,
-          "x": 532,
-          "y": 747,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 127,
-          "layer": "",
-          "name": "BlueBubble",
-          "persistentUuid": "7e02c316-c1a4-4bd4-91ef-3eb69fae3ab5",
-          "width": 127,
-          "x": 401,
-          "y": 723,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 127,
-          "layer": "",
-          "name": "BlueBubble",
-          "persistentUuid": "da3b111a-e9d5-490e-9e13-d5583973910f",
-          "width": 127,
-          "x": 840,
-          "y": 501,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 127,
-          "layer": "",
-          "name": "BlueBubble",
-          "persistentUuid": "04e7dd13-951e-43ec-a8a5-ab8d85f61a03",
-          "width": 127,
-          "x": 654,
-          "y": 365,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 127,
-          "layer": "",
-          "name": "BlueBubble",
-          "persistentUuid": "1c1a2074-9973-47cd-b3df-698e730634d8",
-          "width": 127,
-          "x": 200,
-          "y": 239,
-          "zOrder": 1,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        }
-      ],
-      "editionSettings": {
-        "grid": false,
-        "gridType": "rectangular",
-        "gridWidth": 32,
-        "gridHeight": 32,
-        "gridOffsetX": 0,
-        "gridOffsetY": 0,
-        "gridColor": 10401023,
-        "gridAlpha": 0.8,
-        "snap": false,
-        "zoomFactor": 0.22080798659765327,
+        "zoomFactor": 0.20367153723953405,
         "windowMask": false
       }
     }
