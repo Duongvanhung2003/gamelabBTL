@@ -504,7 +504,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.7822563364757488,
+        "zoomFactor": 0.6850730124299701,
         "windowMask": false
       },
       "objectsGroups": [
@@ -1964,7 +1964,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "YellowBubble.png",
+                      "image": "assets\\Yellow2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -4955,7 +4955,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "YellowBubble.png",
+                      "image": "assets\\Yellow2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
