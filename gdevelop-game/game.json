@@ -505,6 +505,15 @@
           "identifier": "https://asset-resources.gdevelop.io/public-resources/On-Screen Controls/Sprites/Flat Dark/0d29ff7b6ae46d67ca0223b95b40183fe3f58a7e937a0baf5e490f1dece0718c_Pause large button button.png",
           "name": "Pause large button button.png"
         }
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Screenshot 2023-07-11 104230.png",
+        "kind": "image",
+        "metadata": "{\"localFilePath\":\"Screenshot 2023-07-11 104230.png\",\"extension\":\".png\"}",
+        "name": "Screenshot 2023-07-11 104230.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -6756,13 +6765,224 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 2.4637681159420266,
+        "zoomFactor": 1.0062763731870314,
         "windowMask": false
       },
       "objectsGroups": [],
       "variables": [],
-      "instances": [],
-      "objects": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 488,
+          "layer": "",
+          "name": "background",
+          "persistentUuid": "ace10012-692c-4c7d-8448-7931c75ebf7e",
+          "width": 309,
+          "x": -18,
+          "y": -7,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "rule",
+          "persistentUuid": "56381776-9867-4dcc-b7aa-180cfe593a30",
+          "width": 0,
+          "x": 51,
+          "y": 43,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 293,
+          "layer": "",
+          "name": "newrule",
+          "persistentUuid": "a7afaedd-800d-47e8-954c-2130be4d8e93",
+          "width": 202,
+          "x": 46,
+          "y": 88,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "aim",
+          "persistentUuid": "b5dbdf23-b47d-4a7c-ba3b-4abde6df4366",
+          "width": 0,
+          "x": 42,
+          "y": 168,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "note",
+          "persistentUuid": "dcf87517-7fca-4fd1-9370-52b055708c21",
+          "width": 0,
+          "x": 47,
+          "y": 253,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "",
+          "name": "background",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Screenshot 2023-07-11 104230",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Screenshot 2023-07-11 104230.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "rule",
+          "tags": "",
+          "type": "BBText::BBText",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "text": "[outline=yellow] [b] Luật chơi[/b] [/outline] ",
+            "opacity": 255,
+            "fontSize": 30,
+            "visible": true,
+            "color": "0;0;0",
+            "fontFamily": "Arial",
+            "align": "left",
+            "wordWrap": true
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "NewSprite",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": []
+        },
+        {
+          "assetStoreId": "",
+          "name": "aim",
+          "tags": "",
+          "type": "BBText::BBText",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "text": "[b] Mục tiêu: [/b] ",
+            "opacity": 255,
+            "fontSize": 15,
+            "visible": true,
+            "color": "144;19;254",
+            "fontFamily": "Arial",
+            "align": "left",
+            "wordWrap": true
+          }
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "newrule",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Trên màn hình sẽ có những trái bóng được xếp ngẫu nhiên thành các hàng và cột. \nCác trái bóng có màu sắc khác nhau. \n                 Người chơi cần Loại bỏ tất cả các trái bóng trên màn hình bằng việc sử dụng những trái bóng ở dưới \n\n                 Ngoài bắn trúng những trái cùng màu, người chơi cần lưu ý phép tính ở dưới quả bóng để bắn vào bóng chưa đáp án đúng ",
+          "font": "",
+          "textAlignment": "left",
+          "characterSize": 15,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 0
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "note",
+          "tags": "",
+          "type": "BBText::BBText",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "text": "[b] Lưu ý: [/b] ",
+            "opacity": 255,
+            "fontSize": 15,
+            "visible": true,
+            "color": "189;16;224",
+            "fontFamily": "Arial",
+            "align": "left",
+            "wordWrap": true
+          }
+        }
+      ],
       "events": [],
       "layers": [
         {
