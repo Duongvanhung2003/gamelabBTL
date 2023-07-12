@@ -20,8 +20,8 @@
     "templateSlug": "",
     "useExternalSourceFiles": false,
     "version": "1.0.1",
-    "name": "BimBam",
-    "description": "This is a game example to show how to use a graph extension to create match-3 games with GDevelop. The source can be found directly in GDevelop in the examples list.\n\nControls are arrows and left-shift or mouse.",
+    "name": "Bubble",
+    "description": "",
     "author": "",
     "windowWidth": 272,
     "windowHeight": 483,
@@ -79,9 +79,7 @@
       "placement": "bottom-left",
       "showWatermark": true
     },
-    "authorIds": [
-      "IWykYNRvhCZBN3vEgKEbBPOR3Oc2"
-    ],
+    "authorIds": [],
     "authorUsernames": [],
     "categories": [
       "action"
@@ -473,2938 +471,6 @@
     }
   ],
   "layouts": [
-    {
-      "b": 36,
-      "disableInputWhenNotFocused": true,
-      "mangledName": "Game2",
-      "name": "Game2",
-      "r": 66,
-      "standardSortMethod": true,
-      "stopSoundsOnStartup": true,
-      "title": "",
-      "v": 36,
-      "uiSettings": {
-        "grid": false,
-        "gridType": "rectangular",
-        "gridWidth": 16,
-        "gridHeight": 28,
-        "gridOffsetX": 0,
-        "gridOffsetY": 0,
-        "gridColor": 10401023,
-        "gridAlpha": 0.8,
-        "snap": false,
-        "zoomFactor": 0.7822563364757488,
-        "windowMask": false
-      },
-      "objectsGroups": [
-        {
-          "name": "LevelBubble",
-          "objects": [
-            {
-              "name": "YellowBubble"
-            },
-            {
-              "name": "GreenBubble"
-            },
-            {
-              "name": "PurpuleBubble"
-            },
-            {
-              "name": "RedBubble"
-            }
-          ]
-        },
-        {
-          "name": "LinkedBubble",
-          "objects": [
-            {
-              "name": "BoardBubble"
-            },
-            {
-              "name": "LinkBubble"
-            }
-          ]
-        }
-      ],
-      "variables": [
-        {
-          "name": "neighbors",
-          "type": "array",
-          "children": [
-            {
-              "type": "string",
-              "value": "Left"
-            },
-            {
-              "type": "string",
-              "value": "Right"
-            },
-            {
-              "type": "string",
-              "value": "TopLeft"
-            },
-            {
-              "type": "string",
-              "value": "TopRight"
-            },
-            {
-              "type": "string",
-              "value": "BottomLeft"
-            },
-            {
-              "type": "string",
-              "value": "BottomRight"
-            }
-          ]
-        },
-        {
-          "name": "neighbor",
-          "type": "string",
-          "value": ""
-        },
-        {
-          "name": "remainingColors",
-          "type": "array",
-          "children": [
-            {
-              "type": "string",
-              "value": "Yellow"
-            },
-            {
-              "type": "string",
-              "value": "Green"
-            },
-            {
-              "type": "string",
-              "value": "Purple"
-            },
-            {
-              "type": "string",
-              "value": "Red"
-            }
-          ]
-        },
-        {
-          "name": "colors",
-          "type": "array",
-          "children": [
-            {
-              "type": "string",
-              "value": "Yellow"
-            },
-            {
-              "type": "string",
-              "value": "Green"
-            },
-            {
-              "type": "string",
-              "value": "Purple"
-            },
-            {
-              "type": "string",
-              "value": "Red"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "angle": 0,
-          "customSize": true,
-          "depth": 0,
-          "height": 127,
-          "layer": "",
-          "name": "Launcher",
-          "persistentUuid": "b21107d6-61ef-43ae-9d45-209d3d84434d",
-          "width": 127,
-          "x": 179,
-          "y": 510,
-          "zOrder": 68,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "name": "AimingBubble",
-          "persistentUuid": "3007bc8e-0dbe-415c-b428-f048fafc109d",
-          "width": 0,
-          "x": 142,
-          "y": 427,
-          "zOrder": 69,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 520,
-          "layer": "Borders",
-          "name": "SideBorder",
-          "persistentUuid": "3f9c5de6-7866-48f6-999c-8f40039a2863",
-          "width": 64,
-          "x": 272,
-          "y": -20,
-          "zOrder": 70,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 520,
-          "layer": "Borders",
-          "name": "SideBorder",
-          "persistentUuid": "3be23a1e-eb82-4a53-9d62-040fda58ac39",
-          "width": 64,
-          "x": -64,
-          "y": -19,
-          "zOrder": 70,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 64,
-          "layer": "Borders",
-          "name": "TopBorder",
-          "persistentUuid": "ffc2cc08-315e-4def-8410-0466893b8960",
-          "width": 304,
-          "x": -16,
-          "y": -64,
-          "zOrder": 90,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        }
-      ],
-      "objects": [
-        {
-          "assetStoreId": "",
-          "name": "YellowBubble",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "Yellow",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Yellow",
-                      "points": [
-                        {
-                          "name": "Right",
-                          "x": 47,
-                          "y": 15
-                        },
-                        {
-                          "name": "Left",
-                          "x": -16,
-                          "y": 15
-                        },
-                        {
-                          "name": "UpRight",
-                          "x": -1,
-                          "y": -12
-                        },
-                        {
-                          "name": "UpLeft",
-                          "x": 31,
-                          "y": -12
-                        },
-                        {
-                          "name": "DownRight",
-                          "x": -1,
-                          "y": 43
-                        },
-                        {
-                          "name": "DownLeft",
-                          "x": 31,
-                          "y": 43
-                        }
-                      ],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "GreenBubble",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "Green",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Green",
-                      "points": [
-                        {
-                          "name": "Right",
-                          "x": 47,
-                          "y": 15
-                        },
-                        {
-                          "name": "Left",
-                          "x": -16,
-                          "y": 15
-                        },
-                        {
-                          "name": "UpRight",
-                          "x": -1,
-                          "y": -12
-                        },
-                        {
-                          "name": "UpLeft",
-                          "x": 31,
-                          "y": -12
-                        },
-                        {
-                          "name": "DownRight",
-                          "x": -1,
-                          "y": 43
-                        },
-                        {
-                          "name": "DownLeft",
-                          "x": 31,
-                          "y": 43
-                        }
-                      ],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "PurpuleBubble",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "Purple",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "PurpuleBubble.png",
-                      "points": [
-                        {
-                          "name": "Right",
-                          "x": 47,
-                          "y": 15
-                        },
-                        {
-                          "name": "Left",
-                          "x": -16,
-                          "y": 15
-                        },
-                        {
-                          "name": "UpRight",
-                          "x": -1,
-                          "y": -12
-                        },
-                        {
-                          "name": "UpLeft",
-                          "x": 31,
-                          "y": -12
-                        },
-                        {
-                          "name": "DownRight",
-                          "x": -1,
-                          "y": 43
-                        },
-                        {
-                          "name": "DownLeft",
-                          "x": 31,
-                          "y": 43
-                        }
-                      ],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "RedBubble",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "Red",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "RedBubble.png",
-                      "points": [
-                        {
-                          "name": "Right",
-                          "x": 47,
-                          "y": 15
-                        },
-                        {
-                          "name": "Left",
-                          "x": -16,
-                          "y": 15
-                        },
-                        {
-                          "name": "UpRight",
-                          "x": -1,
-                          "y": -12
-                        },
-                        {
-                          "name": "UpLeft",
-                          "x": 31,
-                          "y": -12
-                        },
-                        {
-                          "name": "DownRight",
-                          "x": -1,
-                          "y": 43
-                        },
-                        {
-                          "name": "DownLeft",
-                          "x": 31,
-                          "y": 43
-                        }
-                      ],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "Mark",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "Cross-1",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.07999999821186066,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Cross.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "Launcher",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [
-            {
-              "name": "Turret",
-              "type": "Turret::Turret",
-              "SpeedMax": 360,
-              "Acceleration": 1440,
-              "Deceleration": 36000,
-              "Property": false,
-              "AngleMin": -165,
-              "AngleMax": -15
-            }
-          ],
-          "animations": [
-            {
-              "name": "Hole Start",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Hole Start.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 75,
-                        "y": 75
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "BoardBubble",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [
-            {
-              "name": "Bounce",
-              "type": "Bounce::Bounce",
-              "OldX": 0,
-              "OldY": 0,
-              "OldForceAngle": 0,
-              "OldForceLength": 0,
-              "NormalAngle": 0
-            }
-          ],
-          "animations": [
-            {
-              "name": "Yellow",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "assets\\Yellow2.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 23.5,
-                            "y": 6.5
-                          },
-                          {
-                            "x": 28,
-                            "y": 15
-                          },
-                          {
-                            "x": 23.5,
-                            "y": 23.5
-                          },
-                          {
-                            "x": 15,
-                            "y": 28
-                          },
-                          {
-                            "x": 6.5,
-                            "y": 23.5
-                          },
-                          {
-                            "x": 2,
-                            "y": 15
-                          },
-                          {
-                            "x": 6.5,
-                            "y": 6.5
-                          },
-                          {
-                            "x": 15,
-                            "y": 2
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Green",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "Green2",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 23.5,
-                            "y": 6.5
-                          },
-                          {
-                            "x": 28,
-                            "y": 15
-                          },
-                          {
-                            "x": 23.5,
-                            "y": 23.5
-                          },
-                          {
-                            "x": 15,
-                            "y": 28
-                          },
-                          {
-                            "x": 6.5,
-                            "y": 23.5
-                          },
-                          {
-                            "x": 2,
-                            "y": 15
-                          },
-                          {
-                            "x": 6.5,
-                            "y": 6.5
-                          },
-                          {
-                            "x": 15,
-                            "y": 2
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Purple",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "PurpuleBubble.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 23.5,
-                            "y": 6.5
-                          },
-                          {
-                            "x": 28,
-                            "y": 15
-                          },
-                          {
-                            "x": 23.5,
-                            "y": 23.5
-                          },
-                          {
-                            "x": 15,
-                            "y": 28
-                          },
-                          {
-                            "x": 6.5,
-                            "y": 23.5
-                          },
-                          {
-                            "x": 2,
-                            "y": 15
-                          },
-                          {
-                            "x": 6.5,
-                            "y": 6.5
-                          },
-                          {
-                            "x": 15,
-                            "y": 2
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Red",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "RedBubble.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 23.5,
-                            "y": 6.5
-                          },
-                          {
-                            "x": 28,
-                            "y": 15
-                          },
-                          {
-                            "x": 23.5,
-                            "y": 23.5
-                          },
-                          {
-                            "x": 15,
-                            "y": 28
-                          },
-                          {
-                            "x": 6.5,
-                            "y": 23.5
-                          },
-                          {
-                            "x": 2,
-                            "y": 15
-                          },
-                          {
-                            "x": 6.5,
-                            "y": 6.5
-                          },
-                          {
-                            "x": 15,
-                            "y": 2
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "LinkBubble",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "Green",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "GreenBubble.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Yellow",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "assets\\Yellow2.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Purple",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "PurpuleBubble.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Red",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "RedBubble.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "AimingBubble",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [
-            {
-              "name": "FireBullet",
-              "type": "FireBullet::FireBullet",
-              "FireCooldown": 0.1,
-              "HasJustFired": false
-            }
-          ],
-          "animations": [
-            {
-              "name": "Yellow",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "assets\\YellowBubble.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Green",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Green4",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Purple",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Purple5",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Red",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "Red4",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "MovingBubble",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [
-            {
-              "name": "Bounce",
-              "type": "Bounce::Bounce",
-              "OldX": 0,
-              "OldY": 0,
-              "OldForceAngle": 0,
-              "OldForceLength": 0,
-              "NormalAngle": 0
-            }
-          ],
-          "animations": [
-            {
-              "name": "Purple",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "Purple4",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 25,
-                            "y": 5
-                          },
-                          {
-                            "x": 30,
-                            "y": 15
-                          },
-                          {
-                            "x": 25,
-                            "y": 25
-                          },
-                          {
-                            "x": 15,
-                            "y": 30
-                          },
-                          {
-                            "x": 5,
-                            "y": 25
-                          },
-                          {
-                            "x": 0,
-                            "y": 15
-                          },
-                          {
-                            "x": 5,
-                            "y": 5
-                          },
-                          {
-                            "x": 15,
-                            "y": 0
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Yellow",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "YellowBubble.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 25,
-                            "y": 5
-                          },
-                          {
-                            "x": 30,
-                            "y": 15
-                          },
-                          {
-                            "x": 25,
-                            "y": 25
-                          },
-                          {
-                            "x": 15,
-                            "y": 30
-                          },
-                          {
-                            "x": 5,
-                            "y": 25
-                          },
-                          {
-                            "x": 0,
-                            "y": 15
-                          },
-                          {
-                            "x": 5,
-                            "y": 5
-                          },
-                          {
-                            "x": 15,
-                            "y": 0
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Green",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "assets\\Green3.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 25,
-                            "y": 5
-                          },
-                          {
-                            "x": 30,
-                            "y": 15
-                          },
-                          {
-                            "x": 25,
-                            "y": 25
-                          },
-                          {
-                            "x": 15,
-                            "y": 30
-                          },
-                          {
-                            "x": 5,
-                            "y": 25
-                          },
-                          {
-                            "x": 0,
-                            "y": 15
-                          },
-                          {
-                            "x": 5,
-                            "y": 5
-                          },
-                          {
-                            "x": 15,
-                            "y": 0
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Red",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "assets\\Red4.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 25,
-                            "y": 5
-                          },
-                          {
-                            "x": 30,
-                            "y": 15
-                          },
-                          {
-                            "x": 25,
-                            "y": 25
-                          },
-                          {
-                            "x": 15,
-                            "y": 30
-                          },
-                          {
-                            "x": 5,
-                            "y": 25
-                          },
-                          {
-                            "x": 0,
-                            "y": 15
-                          },
-                          {
-                            "x": 5,
-                            "y": 5
-                          },
-                          {
-                            "x": 15,
-                            "y": 0
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "FallingBubble",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [
-            {
-              "name": "DestroyOutside",
-              "type": "DestroyOutsideBehavior::DestroyOutside",
-              "extraBorder": 32
-            }
-          ],
-          "animations": [
-            {
-              "name": "Red",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "RedBubble.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Yellow",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "assets\\Yellow2.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Green",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "GreenBubble.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Purple",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "PurpuleBubble.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 15,
-                        "y": 15
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "SideBorder",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "NewObject",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.07999999821186066,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "SideBorder.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "TopBorder",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "NewObject",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.07999999821186066,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": false,
-                      "image": "TopBorder.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": []
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "events": [
-        {
-          "colorB": 228,
-          "colorG": 176,
-          "colorR": 74,
-          "creationTime": 0,
-          "name": "Level Link Graph",
-          "source": "",
-          "type": "BuiltinCommonInstructions::Group",
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "DepartScene"
-                  },
-                  "parameters": [
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "BuiltinExternalLayouts::CreateObjectsFromExternalLayout"
-                  },
-                  "parameters": [
-                    "",
-                    "\"Level\" + GlobalVariableString(level)",
-                    "0",
-                    "0"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreAutour"
-                  },
-                  "parameters": [
-                    "AimingBubble",
-                    "Launcher",
-                    "48",
-                    "Launcher.Turret::AimingAngle()"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ChangeAnimation"
-                  },
-                  "parameters": [
-                    "AimingBubble",
-                    "=",
-                    "RandomInRange(0,4)"
-                  ]
-                }
-              ],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::ForEach",
-                  "object": "LevelBubble",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "Create"
-                      },
-                      "parameters": [
-                        "",
-                        "BoardBubble",
-                        "LevelBubble.X()",
-                        "LevelBubble.Y()",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Create"
-                      },
-                      "parameters": [
-                        "",
-                        "LinkBubble",
-                        "LevelBubble.X()",
-                        "LevelBubble.Y()",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Cache"
-                      },
-                      "parameters": [
-                        "LinkBubble"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetAnimationName"
-                      },
-                      "parameters": [
-                        "BoardBubble",
-                        "LevelBubble.AnimationName()"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "SetAnimationName"
-                      },
-                      "parameters": [
-                        "LinkBubble",
-                        "LevelBubble.AnimationName()"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Delete"
-                      },
-                      "parameters": [
-                        "LevelBubble",
-                        ""
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::ForEach",
-                  "object": "LinkBubble",
-                  "conditions": [],
-                  "actions": [],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Link",
-                      "include": {
-                        "includeConfig": 0
-                      },
-                      "target": "CreateNeighborLinks"
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Link",
-                  "include": {
-                    "includeConfig": 0
-                  },
-                  "target": "UpdateRemainingColors"
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "SetAnimationName"
-                      },
-                      "parameters": [
-                        "AimingBubble",
-                        "VariableString(remainingColors[RandomInRange(0, VariableChildCount(remainingColors) - 1)])"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "parameters": []
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "SceneVariableAsBoolean"
-              },
-              "parameters": [
-                "levelCompleted",
-                ""
-              ]
-            }
-          ],
-          "actions": [],
-          "events": [
-            {
-              "colorB": 228,
-              "colorG": 176,
-              "colorR": 74,
-              "creationTime": 0,
-              "name": "Controls",
-              "source": "",
-              "type": "BuiltinCommonInstructions::Group",
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "KeyReleased"
-                      },
-                      "parameters": [
-                        "",
-                        "PageDown"
-                      ]
-                    }
-                  ],
-                  "actions": [],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Link",
-                      "include": {
-                        "includeConfig": 0
-                      },
-                      "target": "NextLevel"
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "Left"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "Turret::Turret::MoveCounterClockwise"
-                      },
-                      "parameters": [
-                        "Launcher",
-                        "Turret",
-                        ""
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "Right"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "Turret::Turret::MoveClockwise"
-                      },
-                      "parameters": [
-                        "Launcher",
-                        "Turret",
-                        ""
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "CursorMovement::CursorStayStill"
-                      },
-                      "parameters": [
-                        "",
-                        "1",
-                        ""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "Left"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "inverted": true,
-                        "value": "KeyPressed"
-                      },
-                      "parameters": [
-                        "",
-                        "Right"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "Turret::Turret::MoveToward"
-                      },
-                      "parameters": [
-                        "Launcher",
-                        "Turret",
-                        "MouseX(\"\", 0)",
-                        "MouseY(\"\", 0)",
-                        "3",
-                        ""
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "Turret::Turret::IsMoving"
-                      },
-                      "parameters": [
-                        "Launcher",
-                        "Turret",
-                        ""
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "MettreAutour"
-                      },
-                      "parameters": [
-                        "AimingBubble",
-                        "Launcher",
-                        "48",
-                        "Launcher.Turret::AimingAngle()"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "FireBullet::FireBullet::CanFire"
-                      },
-                      "parameters": [
-                        "AimingBubble",
-                        "FireBullet",
-                        ""
-                      ]
-                    }
-                  ],
-                  "actions": [],
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "MouseButtonReleased"
-                          },
-                          "parameters": [
-                            "",
-                            "Left"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Turret::Turret::SetAimingAngleToward"
-                          },
-                          "parameters": [
-                            "Launcher",
-                            "Turret",
-                            "MouseX(\"\", 0)",
-                            "MouseY(\"\", 0)",
-                            "3"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "MettreAutour"
-                          },
-                          "parameters": [
-                            "AimingBubble",
-                            "Launcher",
-                            "48",
-                            "Launcher.Turret::AimingAngle()"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "BuiltinCommonInstructions::Or"
-                          },
-                          "parameters": [],
-                          "subInstructions": [
-                            {
-                              "type": {
-                                "value": "KeyReleased"
-                              },
-                              "parameters": [
-                                "",
-                                "LShift"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "MouseButtonReleased"
-                              },
-                              "parameters": [
-                                "",
-                                "Left"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "FireBullet::FireBullet::Fire"
-                          },
-                          "parameters": [
-                            "AimingBubble",
-                            "FireBullet",
-                            "AimingBubble.X()",
-                            "AimingBubble.Y()",
-                            "MovingBubble",
-                            "Launcher.Turret::AimingAngle()",
-                            "300",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetAnimationName"
-                          },
-                          "parameters": [
-                            "MovingBubble",
-                            "AimingBubble.AnimationName()"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetAnimationName"
-                          },
-                          "parameters": [
-                            "AimingBubble",
-                            "VariableString(remainingColors[RandomInRange(0, VariableChildCount(remainingColors) - 1)])"
-                          ]
-                        }
-                      ],
-                      "events": [
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "CollisionNP"
-                              },
-                              "parameters": [
-                                "AimingBubble",
-                                "BoardBubble",
-                                "",
-                                "",
-                                "yes"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "Scene"
-                              },
-                              "parameters": [
-                                "",
-                                "\"Game\"",
-                                ""
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "parameters": []
-            }
-          ]
-        },
-        {
-          "colorB": 228,
-          "colorG": 176,
-          "colorR": 74,
-          "creationTime": 0,
-          "name": "Moving Bubbles",
-          "source": "",
-          "type": "BuiltinCommonInstructions::Group",
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "MovingBubble",
-                    "SideBorder",
-                    "",
-                    "",
-                    "yes"
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Bounce::Bounce::BounceOff"
-                  },
-                  "parameters": [
-                    "MovingBubble",
-                    "Bounce",
-                    "SideBorder",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SeparateFromObjects"
-                  },
-                  "parameters": [
-                    "MovingBubble",
-                    "SideBorder",
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Or"
-                  },
-                  "parameters": [],
-                  "subInstructions": [
-                    {
-                      "type": {
-                        "value": "CollisionNP"
-                      },
-                      "parameters": [
-                        "MovingBubble",
-                        "BoardBubble",
-                        "",
-                        "",
-                        "yes"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "CollisionNP"
-                      },
-                      "parameters": [
-                        "MovingBubble",
-                        "TopBorder",
-                        "",
-                        "",
-                        "yes"
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Arreter"
-                  },
-                  "parameters": [
-                    "MovingBubble"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SeparateFromObjects"
-                  },
-                  "parameters": [
-                    "MovingBubble",
-                    "BoardBubble",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetObjectVariableAsBoolean"
-                  },
-                  "parameters": [
-                    "MovingBubble",
-                    "mustGlue",
-                    "True"
-                  ]
-                }
-              ],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "PosX"
-                      },
-                      "parameters": [
-                        "MovingBubble",
-                        "<",
-                        "MovingBubble.Width() / 2 + 2"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "MettreX"
-                      },
-                      "parameters": [
-                        "MovingBubble",
-                        "=",
-                        "MovingBubble.Width() / 2 + 2"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "PosX"
-                      },
-                      "parameters": [
-                        "MovingBubble",
-                        ">",
-                        "SceneWindowWidth() - (MovingBubble.Width() / 2 + 2)"
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "MettreX"
-                      },
-                      "parameters": [
-                        "MovingBubble",
-                        "=",
-                        "SceneWindowWidth() - (MovingBubble.Width() / 2 + 2)"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "HexagonalGrid::SnapObjectToBubbleGrid"
-                      },
-                      "parameters": [
-                        "",
-                        "MovingBubble",
-                        "32",
-                        "32",
-                        "16",
-                        "16",
-                        ""
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "ObjectVariableAsBoolean"
-                  },
-                  "parameters": [
-                    "MovingBubble",
-                    "mustGlue",
-                    "True"
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "BoardBubble",
-                    "MovingBubble.X()",
-                    "MovingBubble.Y()",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "LinkBubble",
-                    "MovingBubble.X()",
-                    "MovingBubble.Y()",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetAnimationName"
-                  },
-                  "parameters": [
-                    "BoardBubble",
-                    "MovingBubble.AnimationName()"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "SetAnimationName"
-                  },
-                  "parameters": [
-                    "LinkBubble",
-                    "MovingBubble.AnimationName()"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Create"
-                  },
-                  "parameters": [
-                    "",
-                    "Mark",
-                    "MovingBubble.X()",
-                    "MovingBubble.Y()",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Cache"
-                  },
-                  "parameters": [
-                    "LinkBubble"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "LinkedObjects::LinkObjects"
-                  },
-                  "parameters": [
-                    "",
-                    "Mark",
-                    "LinkBubble"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarObjetTxt"
-                  },
-                  "parameters": [
-                    "Mark",
-                    "color",
-                    "=",
-                    "MovingBubble.AnimationName()"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "MovingBubble",
-                    ""
-                  ]
-                }
-              ]
-            }
-          ],
-          "parameters": []
-        },
-        {
-          "colorB": 228,
-          "colorG": 176,
-          "colorR": 74,
-          "creationTime": 0,
-          "name": "Board Resolution",
-          "source": "",
-          "type": "BuiltinCommonInstructions::Group",
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "LinkedObjects::PickObjectsLinkedTo"
-                  },
-                  "parameters": [
-                    "",
-                    "LinkBubble",
-                    "Mark"
-                  ]
-                }
-              ],
-              "actions": [],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Link",
-                  "include": {
-                    "includeConfig": 0
-                  },
-                  "target": "CreateNeighborLinks"
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::ForEach",
-              "object": "Mark",
-              "conditions": [],
-              "actions": [],
-              "events": [
-                {
-                  "colorB": 228,
-                  "colorG": 176,
-                  "colorR": 74,
-                  "creationTime": 0,
-                  "name": "Match 3 Bubbles",
-                  "source": "",
-                  "type": "BuiltinCommonInstructions::Group",
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "AnimationName"
-                          },
-                          "parameters": [
-                            "LinkedBubble",
-                            "Mark.VariableString(color)"
-                          ]
-                        }
-                      ],
-                      "actions": [],
-                      "events": [
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "LinkTools::CanReach"
-                              },
-                              "parameters": [
-                                "",
-                                "LinkedBubble",
-                                "Mark",
-                                "6"
-                              ]
-                            }
-                          ],
-                          "actions": [],
-                          "events": [
-                            {
-                              "type": "BuiltinCommonInstructions::Standard",
-                              "conditions": [
-                                {
-                                  "type": {
-                                    "value": "NbObjet"
-                                  },
-                                  "parameters": [
-                                    "LinkedBubble",
-                                    ">=",
-                                    "6"
-                                  ]
-                                }
-                              ],
-                              "actions": [
-                                {
-                                  "type": {
-                                    "value": "SetObjectVariableAsBoolean"
-                                  },
-                                  "parameters": [
-                                    "LinkedBubble",
-                                    "mustFell",
-                                    "True"
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::ForEach",
-                      "object": "BoardBubble",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "ObjectVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "BoardBubble",
-                            "mustFell",
-                            "True"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Create"
-                          },
-                          "parameters": [
-                            "",
-                            "FallingBubble",
-                            "BoardBubble.X()",
-                            "BoardBubble.Y()",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetAnimationName"
-                          },
-                          "parameters": [
-                            "FallingBubble",
-                            "BoardBubble.AnimationName()"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "ChangeScale"
-                          },
-                          "parameters": [
-                            "FallingBubble",
-                            "=",
-                            "0.5"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Delete"
-                          },
-                          "parameters": [
-                            "BoardBubble",
-                            ""
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "ObjectVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "LinkBubble",
-                            "mustFell",
-                            "True"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Delete"
-                          },
-                          "parameters": [
-                            "LinkBubble",
-                            ""
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Delete"
-                          },
-                          "parameters": [
-                            "Mark",
-                            ""
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-                  "parameters": []
-                },
-                {
-                  "colorB": 228,
-                  "colorG": 176,
-                  "colorR": 74,
-                  "creationTime": 0,
-                  "name": "Unheld Bubbles",
-                  "source": "",
-                  "type": "BuiltinCommonInstructions::Group",
-                  "events": [
-                    {
-                      "type": "BuiltinCommonInstructions::ForEach",
-                      "object": "LinkedBubble",
-                      "conditions": [],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "SetObjectVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "LinkedBubble",
-                            "mustFell",
-                            "True"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "LinkTools::CanReach"
-                          },
-                          "parameters": [
-                            "",
-                            "LinkedBubble",
-                            "TopBorder",
-                            "6"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "SetObjectVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "LinkedBubble",
-                            "mustFell",
-                            ""
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::ForEach",
-                      "object": "BoardBubble",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "ObjectVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "BoardBubble",
-                            "mustFell",
-                            "True"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Create"
-                          },
-                          "parameters": [
-                            "",
-                            "FallingBubble",
-                            "BoardBubble.X()",
-                            "BoardBubble.Y()",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SetAnimationName"
-                          },
-                          "parameters": [
-                            "FallingBubble",
-                            "BoardBubble.AnimationName()"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Delete"
-                          },
-                          "parameters": [
-                            "BoardBubble",
-                            ""
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "ObjectVariableAsBoolean"
-                          },
-                          "parameters": [
-                            "LinkBubble",
-                            "mustFell",
-                            "True"
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "Delete"
-                          },
-                          "parameters": [
-                            "LinkBubble",
-                            ""
-                          ]
-                        }
-                      ]
-                    }
-                  ],
-                  "parameters": []
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Link",
-                  "include": {
-                    "includeConfig": 0
-                  },
-                  "target": "UpdateRemainingColors"
-                }
-              ]
-            }
-          ],
-          "parameters": []
-        },
-        {
-          "colorB": 228,
-          "colorG": 176,
-          "colorR": 74,
-          "creationTime": 0,
-          "name": "Falling Bubble",
-          "source": "",
-          "type": "BuiltinCommonInstructions::Group",
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::ForEach",
-              "object": "FallingBubble",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "value": "AddForceAL"
-                  },
-                  "parameters": [
-                    "FallingBubble",
-                    "90",
-                    "16",
-                    "1"
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "SceneVariableAsBoolean"
-                  },
-                  "parameters": [
-                    "levelCompleted",
-                    "True"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "NbObjet"
-                  },
-                  "parameters": [
-                    "FallingBubble",
-                    "=",
-                    "0"
-                  ]
-                }
-              ],
-              "actions": [],
-              "events": [
-                {
-                  "type": "BuiltinCommonInstructions::Link",
-                  "include": {
-                    "includeConfig": 0
-                  },
-                  "target": "NextLevel"
-                }
-              ]
-            }
-          ],
-          "parameters": []
-        }
-      ],
-      "layers": [
-        {
-          "ambientLightColorB": 1702453580,
-          "ambientLightColorG": 6022704,
-          "ambientLightColorR": 167801445,
-          "camera3DFarPlaneDistance": 10000,
-          "camera3DFieldOfView": 45,
-          "camera3DNearPlaneDistance": 0.1,
-          "followBaseLayerCamera": false,
-          "isLightingLayer": false,
-          "isLocked": false,
-          "name": "Borders",
-          "renderingType": "",
-          "visibility": true,
-          "cameras": [],
-          "effects": []
-        },
-        {
-          "ambientLightColorB": 36,
-          "ambientLightColorG": 7379992,
-          "ambientLightColorR": 32,
-          "camera3DFarPlaneDistance": 10000,
-          "camera3DFieldOfView": 45,
-          "camera3DNearPlaneDistance": 0.1,
-          "followBaseLayerCamera": false,
-          "isLightingLayer": false,
-          "isLocked": false,
-          "name": "",
-          "renderingType": "",
-          "visibility": true,
-          "cameras": [
-            {
-              "defaultSize": true,
-              "defaultViewport": true,
-              "height": 0,
-              "viewportBottom": 1,
-              "viewportLeft": 0,
-              "viewportRight": 1,
-              "viewportTop": 0,
-              "width": 0
-            }
-          ],
-          "effects": []
-        }
-      ],
-      "behaviorsSharedData": [
-        {
-          "name": "Bounce",
-          "type": "Bounce::Bounce"
-        },
-        {
-          "name": "FireBullet",
-          "type": "FireBullet::FireBullet"
-        },
-        {
-          "name": "Turret",
-          "type": "Turret::Turret"
-        }
-      ]
-    },
     {
       "b": 36,
       "disableInputWhenNotFocused": true,
@@ -4430,7 +1496,7 @@
           ],
           "animations": [
             {
-              "name": "YellowYelloww",
+              "name": "Yellow",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -4637,7 +1703,7 @@
               ]
             },
             {
-              "name": "YellowYellow",
+              "name": "Yellow",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -4646,7 +1712,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "YellowBubble.png",
+                      "image": "assets\\YellowBubble.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -5181,7 +2247,7 @@
                       "include": {
                         "includeConfig": 0
                       },
-                      "target": "CreateNeighborLinks"
+                      "target": "CreateNeighborLinks2"
                     }
                   ]
                 },
@@ -5190,7 +2256,7 @@
                   "include": {
                     "includeConfig": 0
                   },
-                  "target": "UpdateRemainingColors"
+                  "target": "UpdateRemainingColors2"
                 },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
@@ -5535,7 +2601,7 @@
                               },
                               "parameters": [
                                 "",
-                                "\"Game\"",
+                                "\"Game3\"",
                                 ""
                               ]
                             }
@@ -5884,7 +2950,7 @@
                   "include": {
                     "includeConfig": 0
                   },
-                  "target": "CreateNeighborLinks"
+                  "target": "CreateNeighborLinks2"
                 }
               ]
             },
@@ -6204,7 +3270,7 @@
                   "include": {
                     "includeConfig": 0
                   },
-                  "target": "UpdateRemainingColors"
+                  "target": "UpdateRemainingColors2"
                 }
               ]
             }
@@ -9475,39 +6541,6 @@
     {
       "associatedLayout": "Game",
       "lastChangeTimeStamp": 0,
-      "name": "NextLevel2",
-      "events": [
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": [
-            {
-              "type": {
-                "value": "ModVarGlobal"
-              },
-              "parameters": [
-                "level",
-                "=",
-                "mod(GlobalVariable(level) + 1, 2)"
-              ]
-            },
-            {
-              "type": {
-                "value": "Scene"
-              },
-              "parameters": [
-                "",
-                "\"Game\"",
-                ""
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "associatedLayout": "Game",
-      "lastChangeTimeStamp": 0,
       "name": "NextLevel",
       "events": [
         {
@@ -9531,6 +6564,194 @@
               "parameters": [
                 "",
                 "\"Game\"",
+                ""
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "associatedLayout": "Game3",
+      "lastChangeTimeStamp": 0,
+      "name": "CreateNeighborLinks2",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionPoint"
+              },
+              "parameters": [
+                "BoardBubble1",
+                "LinkBubble1.X()",
+                "LinkBubble1.Y()"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "LinkedObjects::LinkObjects"
+              },
+              "parameters": [
+                "",
+                "BoardBubble1",
+                "LinkBubble1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "LinkTools::LinkHexagonalNeighbors"
+              },
+              "parameters": [
+                "",
+                "LinkBubble1",
+                "BoardBubble1",
+                "32",
+                "32",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionPoint"
+              },
+              "parameters": [
+                "TopBorder",
+                "LinkBubble1.X()",
+                "LinkBubble1.Y() - 32"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "LinkedObjects::LinkObjects"
+              },
+              "parameters": [
+                "",
+                "TopBorder",
+                "LinkBubble1"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "associatedLayout": "Game3",
+      "lastChangeTimeStamp": 0,
+      "name": "UpdateRemainingColors2",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "VariableClearChildren"
+              },
+              "parameters": [
+                "remainingColors"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::ForEachChildVariable",
+          "iterableVariableName": "colors",
+          "valueIteratorVariableName": "color",
+          "keyIteratorVariableName": "index",
+          "conditions": [
+            {
+              "type": {
+                "value": "AnimationName"
+              },
+              "parameters": [
+                "BoardBubble1",
+                "VariableString(color)"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SceneVariablePushString"
+              },
+              "parameters": [
+                "remainingColors",
+                "VariableString(color)"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Egal"
+              },
+              "parameters": [
+                "VariableChildCount(remainingColors)",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetSceneVariableAsBoolean"
+              },
+              "parameters": [
+                "levelCompleted",
+                "True"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "associatedLayout": "Game3",
+      "lastChangeTimeStamp": 0,
+      "name": "NextLevel2",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarGlobal"
+              },
+              "parameters": [
+                "level",
+                "=",
+                "mod(GlobalVariable(level) + 1, 8)"
+              ]
+            },
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Game3\"",
                 ""
               ]
             }
@@ -19462,7 +16683,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 1.0162829438868748,
+        "zoomFactor": 0.729430739137031,
         "windowMask": false
       }
     },
@@ -21682,6 +18903,1433 @@
         "gridAlpha": 0.8,
         "snap": false,
         "zoomFactor": 0.6943306974990502,
+        "windowMask": false
+      }
+    },
+    {
+      "associatedLayout": "Game3",
+      "name": "Level4",
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "88bd28ba-8718-4429-9fcd-064b7cc6c494",
+          "width": 0,
+          "x": 144,
+          "y": 240,
+          "zOrder": 97,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "b23b9f89-742e-4ec0-900c-45f1943186bf",
+          "width": 0,
+          "x": 160,
+          "y": 268,
+          "zOrder": 98,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "83c2a2e2-92fb-4277-ab71-6051f6a76ff1",
+          "width": 0,
+          "x": 128,
+          "y": 268,
+          "zOrder": 99,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "b36829dc-0c63-443d-ad66-1b70c60808f2",
+          "width": 0,
+          "x": 112,
+          "y": 240,
+          "zOrder": 100,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "aaa8dbde-d8b2-412f-8b42-f1727d5d410a",
+          "width": 0,
+          "x": 176,
+          "y": 240,
+          "zOrder": 101,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "43d4cb3a-b407-41d2-aed4-7a6df3358293",
+          "width": 0,
+          "x": 128,
+          "y": 212,
+          "zOrder": 102,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "c58a2a74-a08a-4193-a19a-ea5e6c9877e1",
+          "width": 0,
+          "x": 160,
+          "y": 212,
+          "zOrder": 103,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "e1614b5b-2df9-4bc6-93ff-a68d4d410dd9",
+          "width": 0,
+          "x": 192,
+          "y": 268,
+          "zOrder": 104,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "e76485fe-729e-48e5-843e-94cc860a604d",
+          "width": 0,
+          "x": 144,
+          "y": 296,
+          "zOrder": 105,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "a6178eb0-8d32-4df4-bc20-f70595752268",
+          "width": 0,
+          "x": 176,
+          "y": 296,
+          "zOrder": 106,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "14b17407-4dc0-4a87-936b-de1a16d4a1bc",
+          "width": 0,
+          "x": 160,
+          "y": 324,
+          "zOrder": 107,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "5e587ea2-9148-450d-adcd-bf7bf70dcac2",
+          "width": 0,
+          "x": 192,
+          "y": 324,
+          "zOrder": 108,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "307ad50b-e51f-483c-8774-9689a88e38c6",
+          "width": 0,
+          "x": 208,
+          "y": 296,
+          "zOrder": 109,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "b8a61bb0-c762-4ff3-aeec-baf1152211c5",
+          "width": 0,
+          "x": 224,
+          "y": 268,
+          "zOrder": 110,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "3a7431fd-36eb-484e-91d9-cf636102f9f0",
+          "width": 0,
+          "x": 208,
+          "y": 240,
+          "zOrder": 111,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "2d0c051a-43de-4c82-8457-7f224599e670",
+          "width": 0,
+          "x": 144,
+          "y": 72,
+          "zOrder": 114,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "c0110ef2-c280-4adc-822d-41cdb3f4af78",
+          "width": 0,
+          "x": 112,
+          "y": 72,
+          "zOrder": 116,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "706ef6b7-8798-43fa-9893-e67e880f0df9",
+          "width": 0,
+          "x": 128,
+          "y": 100,
+          "zOrder": 117,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "e8d8179a-1107-4692-ae3a-55b70c8f8498",
+          "width": 0,
+          "x": 96,
+          "y": 44,
+          "zOrder": 119,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "029e116a-7ac5-4685-ab15-d180ca664fa6",
+          "width": 0,
+          "x": 112,
+          "y": 128,
+          "zOrder": 121,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "b92699e8-1683-4c8d-b996-5aa744271063",
+          "width": 0,
+          "x": 80,
+          "y": 72,
+          "zOrder": 122,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "0692c0c9-ef17-4ab7-a19c-f4cb1b698025",
+          "width": 0,
+          "x": 96,
+          "y": 100,
+          "zOrder": 123,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "2686b2d4-64f3-4805-8a82-3c0c4d2eb025",
+          "width": 0,
+          "x": 128,
+          "y": 156,
+          "zOrder": 124,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble",
+          "persistentUuid": "bbbc0dee-89bc-4588-95a2-a28647e99f6a",
+          "width": 0,
+          "x": 224,
+          "y": 156,
+          "zOrder": 130,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble",
+          "persistentUuid": "c1c36a45-2f30-4d1b-9a42-98385cc9dcda",
+          "width": 0,
+          "x": 176,
+          "y": 72,
+          "zOrder": 131,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble",
+          "persistentUuid": "5bcf3495-169f-4e36-915f-969e7f6817f7",
+          "width": 0,
+          "x": 192,
+          "y": 100,
+          "zOrder": 132,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble",
+          "persistentUuid": "67948138-7d19-435b-ba84-fdc9069bbb78",
+          "width": 0,
+          "x": 208,
+          "y": 128,
+          "zOrder": 133,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble",
+          "persistentUuid": "779b35a8-1bb2-4a15-a76c-58e25b4dd28a",
+          "width": 0,
+          "x": 192,
+          "y": 156,
+          "zOrder": 134,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble",
+          "persistentUuid": "46adcc17-6ef1-45fc-8045-35f5bd3a7969",
+          "width": 0,
+          "x": 176,
+          "y": 184,
+          "zOrder": 135,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble",
+          "persistentUuid": "dc463d38-019e-4251-9bb2-13b43f4e1fc6",
+          "width": 0,
+          "x": 192,
+          "y": 212,
+          "zOrder": 136,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble",
+          "persistentUuid": "a9e00387-7716-4992-8ffd-9301f0cf67b1",
+          "width": 0,
+          "x": 256,
+          "y": 156,
+          "zOrder": 137,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "0d5c49a3-2e45-496c-af48-6423b9a35aa0",
+          "width": 0,
+          "x": 112,
+          "y": 296,
+          "zOrder": 144,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "dd368503-8d63-4e12-87d6-ce17e4b0d7fd",
+          "width": 0,
+          "x": 128,
+          "y": 324,
+          "zOrder": 145,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "44f18130-c257-4f4a-bbb9-ac780185a45f",
+          "width": 0,
+          "x": 176,
+          "y": 352,
+          "zOrder": 147,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "fa91fd50-2a50-4525-bd0e-c798cf6bef74",
+          "width": 0,
+          "x": 224,
+          "y": 324,
+          "zOrder": 148,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "aab57ef2-1b4c-4462-a28f-10345dc442ff",
+          "width": 0,
+          "x": 208,
+          "y": 352,
+          "zOrder": 151,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "9b83d0b5-32c4-44a0-b8b4-9bfed6f4e419",
+          "width": 0,
+          "x": 192,
+          "y": 380,
+          "zOrder": 152,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "a5737240-8994-4c5f-9ae7-a17ab3e2553a",
+          "width": 0,
+          "x": 64,
+          "y": 100,
+          "zOrder": 153,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "7a0fdf06-21e7-4f68-96bf-6abfc9ba5625",
+          "width": 0,
+          "x": 48,
+          "y": 128,
+          "zOrder": 155,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "2553a1db-97f7-4ec0-947b-9c5117bb0bab",
+          "width": 0,
+          "x": 64,
+          "y": 44,
+          "zOrder": 156,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "dcd5e9c2-fe16-471a-893b-f080d2f25b87",
+          "width": 0,
+          "x": 96,
+          "y": 156,
+          "zOrder": 157,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "80b6c456-d811-42bf-895d-6542e63bd851",
+          "width": 0,
+          "x": 112,
+          "y": 184,
+          "zOrder": 158,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "34637079-e478-4eea-a77a-47ffb429bbe3",
+          "width": 0,
+          "x": 32,
+          "y": 100,
+          "zOrder": 159,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "55b144c9-4428-4cc0-a281-51a694b4a0db",
+          "width": 0,
+          "x": 16,
+          "y": 128,
+          "zOrder": 160,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "7322bf24-f6af-401b-b358-fa4cc7463ae8",
+          "width": 0,
+          "x": 16,
+          "y": 16,
+          "zOrder": 163,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "dfb982e7-02e0-492c-8297-2bec25787f9d",
+          "width": 0,
+          "x": 48,
+          "y": 16,
+          "zOrder": 164,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "a4317dac-681e-4bde-b7a9-bebaf0af3827",
+          "width": 0,
+          "x": 128,
+          "y": 44,
+          "zOrder": 166,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "c2d99f3e-3812-4b6f-9b05-873d936d3cc8",
+          "width": 0,
+          "x": 144,
+          "y": 128,
+          "zOrder": 167,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "b4352faf-afdb-4694-a9ee-b0fd6aeed386",
+          "width": 0,
+          "x": 80,
+          "y": 16,
+          "zOrder": 168,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "2068c578-f4b4-41bc-a100-690fe8c84649",
+          "width": 0,
+          "x": 16,
+          "y": 72,
+          "zOrder": 170,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "26cac51c-4cf5-4471-b4af-0d1a8dd6d1d8",
+          "width": 0,
+          "x": 48,
+          "y": 72,
+          "zOrder": 171,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble",
+          "persistentUuid": "b34f40d7-4132-4de7-9c81-cb1adaab0b7a",
+          "width": 0,
+          "x": 160,
+          "y": 44,
+          "zOrder": 173,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble1",
+          "persistentUuid": "3c477f57-155d-424d-8d81-d2f8bd69b9ec",
+          "width": 0,
+          "x": 66,
+          "y": 14,
+          "zOrder": 174,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble1",
+          "persistentUuid": "9c82e0ca-602d-41f3-9d30-d15c72233b46",
+          "width": 0,
+          "x": 86,
+          "y": 29,
+          "zOrder": 175,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble1",
+          "persistentUuid": "bd4a115b-bde1-4f00-9466-aceb7dee4dc0",
+          "width": 0,
+          "x": 120,
+          "y": 53,
+          "zOrder": 176,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "RedBubble1",
+          "persistentUuid": "6eb62ace-3af9-42bc-8a6a-281658599f99",
+          "width": 0,
+          "x": 144,
+          "y": 20,
+          "zOrder": 177,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "editionSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 28,
+        "gridOffsetX": 0,
+        "gridOffsetY": 16,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.6080707824001411,
+        "windowMask": false
+      }
+    },
+    {
+      "associatedLayout": "Game3",
+      "name": "Level5",
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "e7272fea-b4e2-43d4-95d0-177524eec6f2",
+          "width": 0,
+          "x": 115,
+          "y": 76,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "8c8b00a6-92c4-40bc-aa27-e7f05ab31feb",
+          "width": 0,
+          "x": 82,
+          "y": 76,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "86cc10ad-2fcb-4344-96f1-ddac93ffb6cb",
+          "width": 0,
+          "x": 66,
+          "y": 107,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "af8175af-6db6-41b6-a4b3-7ffd1e9f35ce",
+          "width": 0,
+          "x": 81,
+          "y": 137,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "73414069-4677-4636-982a-40b67c1bd4e6",
+          "width": 0,
+          "x": 116,
+          "y": 136,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "298d7797-1afd-498c-a464-e42c9ed384c9",
+          "width": 0,
+          "x": 131,
+          "y": 107,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "ead10d3e-1652-4431-bc92-1b48a09ff047",
+          "width": 0,
+          "x": 98,
+          "y": 105,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "dd1c8ce2-89e1-48f7-a268-bcfcb168a5c0",
+          "width": 0,
+          "x": 150,
+          "y": 18,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "76142a8a-e804-42cb-a457-01d862ea825c",
+          "width": 0,
+          "x": 184,
+          "y": 17,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "depth": 0,
+          "height": 31,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "bacca1d0-bbf0-4f97-bd63-b7d0ad4398c7",
+          "width": 30,
+          "x": 134,
+          "y": 48,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "7f48183e-56db-439d-835f-592b1f9a3f74",
+          "width": 0,
+          "x": 152,
+          "y": 79,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "a87cf78f-f70a-4032-9449-e50986174005",
+          "width": 0,
+          "x": 187,
+          "y": 77,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "b4eea88e-79f8-49fd-a865-e5afcf25dbc9",
+          "width": 0,
+          "x": 202,
+          "y": 46,
+          "zOrder": 3,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble",
+          "persistentUuid": "467b281e-7269-4b9d-a22a-03bea9fbd17e",
+          "width": 0,
+          "x": 167,
+          "y": 46,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "RedBubble",
+          "persistentUuid": "95efa5c5-9728-4786-9b52-7ce63d7ca841",
+          "width": 0,
+          "x": 168,
+          "y": 108,
+          "zOrder": 4,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "RedBubble",
+          "persistentUuid": "beae667e-9897-47fd-97da-e4ec0bf70527",
+          "width": 0,
+          "x": 202,
+          "y": 109,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "RedBubble",
+          "persistentUuid": "d9d8adf6-ddd4-4b08-bb9e-c4a2642258e3",
+          "width": 0,
+          "x": 148,
+          "y": 135,
+          "zOrder": 6,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "RedBubble",
+          "persistentUuid": "111d69ee-ceb3-4302-a074-9d318c95d7b6",
+          "width": 0,
+          "x": 216,
+          "y": 139,
+          "zOrder": 7,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "RedBubble",
+          "persistentUuid": "b548499e-44e6-427e-a80e-b1b4d978dee2",
+          "width": 0,
+          "x": 161,
+          "y": 167,
+          "zOrder": 8,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "RedBubble",
+          "persistentUuid": "075a76d7-3043-43fb-a70f-48a7b3fbbfdb",
+          "width": 0,
+          "x": 198,
+          "y": 166,
+          "zOrder": 9,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble",
+          "persistentUuid": "0fe540b7-2132-4b7f-a978-3801577fad89",
+          "width": 0,
+          "x": 182,
+          "y": 138,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "RedBubble",
+          "persistentUuid": "42773bbf-ebff-4881-b157-423affe8515f",
+          "width": 0,
+          "x": 107,
+          "y": 195,
+          "zOrder": 32,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "122c2bea-977e-470c-892a-6e18bb9aa522",
+          "width": 0,
+          "x": 90,
+          "y": 167,
+          "zOrder": 26,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "f0304df6-1691-4aac-b6d0-27ef986f6a72",
+          "width": 0,
+          "x": 125,
+          "y": 168,
+          "zOrder": 27,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "4e8483ea-8cc7-4c27-ae3b-a2821ac60174",
+          "width": 0,
+          "x": 140,
+          "y": 198,
+          "zOrder": 28,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "d26468ac-4558-44ba-b965-97908e33363e",
+          "width": 0,
+          "x": 75,
+          "y": 198,
+          "zOrder": 29,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "b8d6abf8-e8b9-40e9-9818-97e8cad2ff53",
+          "width": 0,
+          "x": 92,
+          "y": 226,
+          "zOrder": 30,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble",
+          "persistentUuid": "cefdf66a-258f-481f-baf9-4f3b7a87f578",
+          "width": 0,
+          "x": 123,
+          "y": 226,
+          "zOrder": 31,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "RedBubble1",
+          "persistentUuid": "0513ef26-9895-4d22-ae05-df07c073754c",
+          "width": 0,
+          "x": 143,
+          "y": 189,
+          "zOrder": 33,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble1",
+          "persistentUuid": "b3780213-a578-4771-ae64-79b4ca7345ce",
+          "width": 0,
+          "x": 172,
+          "y": 200,
+          "zOrder": 34,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "editionSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 28,
+        "gridOffsetX": 0,
+        "gridOffsetY": 16,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.7388639619484549,
+        "windowMask": false
+      }
+    },
+    {
+      "associatedLayout": "Game3",
+      "name": "Level6",
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "RedBubble1",
+          "persistentUuid": "ac2be90f-c6fd-4438-9c7b-8b90e591cc5e",
+          "width": 0,
+          "x": 51,
+          "y": 131,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PurpuleBubble1",
+          "persistentUuid": "ebe7c1d5-b393-4076-9c4c-37477f128cd2",
+          "width": 0,
+          "x": 73,
+          "y": 118,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "editionSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 28,
+        "gridOffsetX": 0,
+        "gridOffsetY": 16,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.6716813796678985,
+        "windowMask": false
+      }
+    },
+    {
+      "associatedLayout": "Game3",
+      "name": "Level7",
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "YellowBubble1",
+          "persistentUuid": "0e720f66-c273-4983-9fe9-e19c525393e5",
+          "width": 0,
+          "x": 40,
+          "y": 29,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "GreenBubble1",
+          "persistentUuid": "efc7b177-6907-4a4a-91e3-6430b75481e4",
+          "width": 0,
+          "x": 99,
+          "y": 30,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "editionSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 16,
+        "gridHeight": 28,
+        "gridOffsetX": 0,
+        "gridOffsetY": 16,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.729430739137031,
         "windowMask": false
       }
     }
